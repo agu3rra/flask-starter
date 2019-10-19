@@ -1,5 +1,5 @@
 import json
-from flask import Response
+from flask import Response, Blueprint
 
 
 users = [
@@ -15,6 +15,9 @@ users = [
     }
 ]
 
+users_resource = Blueprint('users_resource', __name__)
+
+@users_resource.route('/users')
 def get_users():
     response = json.dumps(users)
     return Response(response, status=200, mimetype='application/json')

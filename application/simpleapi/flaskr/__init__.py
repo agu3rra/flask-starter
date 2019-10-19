@@ -34,8 +34,6 @@ def create_app(test_config=None):
         response = json.dumps(response)
         return Response(response, status=200, mimetype='application/json')
 
-    @app.route('/users')
-    def get_users():
-        return api.get_users() 
+    app.register_blueprint(api.users_resource)
 
     return app

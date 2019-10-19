@@ -1,1 +1,1 @@
-from .users import get_users
+from .users import users_resource
