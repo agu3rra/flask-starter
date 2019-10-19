@@ -21,9 +21,9 @@ except OSError:
 def status():
     response = {
         "status":True,
-        "info":"I am alive!"
+        "info":"Hello! I am alive!"
     }
     response = json.dumps(response)
     return Response(response, status=200, mimetype='application/json')
 
-app.register_blueprint(routes.users_resource)
+app.register_blueprint(routes.users_resource, url_prefix='/api')
